@@ -2,23 +2,23 @@
 Library    RequestsLibrary
 
 *** Test Cases ***
-true_when_x_is_17
-    [Documentation]    true_when_x_is_17
-    ${resp}=     GET    http://localhost:3000/is_prime/17
-    Should Be Equal     ${resp.status_code}    ${200}
-    Should Be Equal     ${resp.text}    true
-    Delete All Sessions
-
-false_when_x_is_36
-    [Documentation]    false_when_x_is_36
-    ${resp}=     GET    http://localhost:3000/is_prime/36
+test_x_is_1
+    [Documentation]    test_x_is_1
+    ${resp}=     GET    http://localhost:3000/iseven/1
     Should Be Equal     ${resp.status_code}    ${200}
     Should Be Equal     ${resp.text}    false
     Delete All Sessions
 
-true_when_x_is_13219
-    [Documentation]    true_when_x_is_13219
-    ${resp}=     GET    http://localhost:3000/is_prime/13219
+test_x_is_0
+    [Documentation]    test_x_is_0
+    ${resp}=     GET    http://localhost:3000/iseven/0
+    Should Be Equal     ${resp.status_code}    ${200}
+    Should Be Equal     ${resp.text}    true
+    Delete All Sessions
+
+test_x_is_neg2
+    [Documentation]    test_x_is_neg2
+    ${resp}=     GET    http://localhost:3000/iseven/-2
     Should Be Equal     ${resp.status_code}    ${200}
     Should Be Equal    ${resp.text}    true
     Delete All Sessions
